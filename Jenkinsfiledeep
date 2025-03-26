@@ -42,5 +42,10 @@ pipeline {
         sh 'docker push deep0428/insureme'
                                 }
             }
+   stage('Deploy Application using playbook') {
+      steps {
+        ansiblePlaybook credentialsId: 'sshkey', disableHostKeyChecking: true, installation: 'ansible', inventory: 'deploy.yml', playbook: '', vaultTmpPath: ''
+                                }
+            }
    }
 }
