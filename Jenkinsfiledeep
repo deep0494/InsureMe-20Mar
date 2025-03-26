@@ -32,7 +32,7 @@ pipeline {
       steps {
         //withCredentials([usernamePassword(credentialsId: 'docker-all', passwordVariable: 'docker-pass', usernameVariable: 'docker-user')]) {
         withCredentials([string(credentialsId: 'docker-code', variable: 'docker-var-code')]) {
-        sh 'docker login -u deep0428 -p docker-var-code
+        sh 'docker login -u deep0428 -p ${docker-var-code}'
                           }
                   }
            }
